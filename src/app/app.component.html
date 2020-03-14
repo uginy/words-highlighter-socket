@@ -1,0 +1,94 @@
+<div class="wrapper"
+  (mouseleave)="isOutsideEditor=true"
+  (mouseenter)="isOutsideEditor=false">
+  <div class="jumbotron">
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">Logo</a>
+
+        <div class="form-inline my-2 my-lg-0">
+          <div class="timer">{{ clock | date:'HH:mm:ss'}}</div>
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <input *ngIf="isUserNameEditing" type="text" [(ngModel)]="me" (keyup.enter)="isUserNameEditing=false" (keyup.esc)="isUserNameEditing=false; me = user">
+              <div *ngIf="!isUserNameEditing" class="nav-link" href="#"
+                (dblclick)="isUserNameEditing=true"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="Double Click to Change Your Username"
+                data-original-title="Double Click to Change Your Username, and hit Enter to Save"
+                aria-describedby="tooltip275581">{{ me }}
+            </div>
+            </li>
+          </ul>
+          <button class="btn btn-secondary my-2 my-sm-0" type="button">Logout</button>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section>
+        <article>
+          <div class="jumbotron">
+            <div *ngIf="!edit; else editarea" (dblclick)="onEdit()">
+              <div [innerHTML]="changedText | safe: 'html'">{{changedText}}</div>
+            </div>
+            <ng-template #editarea>
+              <div class="form-group">
+                <textarea
+                  (keyup.esc)="text=previousText"
+                  autosize class="form-control"
+                  id="Textarea"
+                  [(ngModel)]="text">{{ text }}
+                </textarea>
+              </div>
+            </ng-template>
+          </div>
+        </article>
+      </section>
+      <aside>
+        <div class="jumbotron">
+          <div *ngFor=" let word of words; let i=index" class="words-list">
+            <span>{{ word }}</span>
+            <button (click)="onRemove(i)" class="btn btn-danger remove">х</button>
+          </div>
+          <br>
+          <div class="form-group">
+            <input #word (keyup.enter)="word.value? onAdd(word): null; word.value=null" class="form-control form-control-sm" type="text"
+                   placeholder="Add a word" id="inputSmall">
+          </div>
+        </div>
+      </aside>
+      <div class="bottom-bar">
+        <div>
+          <button (click)="onEdit()" *ngIf="isEditable; else progress" data-toggle="modal" data-target="#Modal"
+                  class="btn btn-success">{{ edit? 'Save': 'Edit' }}</button>
+          <ng-template #progress>
+            <div *ngIf="!edit">
+              The text is editing right now and locked for changes...</div>
+          </ng-template>
+        </div>
+        <p *ngIf="updated">Latest changes made by: {{ user ? user: me}} @ {{ (updated ? updated : clock )| date: "dd-MM-yyyy HH:mm:ss" }}</p>
+      </div>
+    </main>
+  </div>
+</div>
+
+<!-- Modal -->
+<div *ngIf="isEmptyText" class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        The text couldn't be empty!
+        Please add one!
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
