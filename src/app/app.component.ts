@@ -111,7 +111,7 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   onAdd(val) {
-    if (val) this.words.push(val.value);
+    if (val && this.words.indexOf(val.value) === -1) this.words.push(val.value);
     this.onCheckMatching();
     if (this.edit) this.isEditable = false;
     this.sendText(this.me, this.text, this.isEditable, this.words, this.clock);

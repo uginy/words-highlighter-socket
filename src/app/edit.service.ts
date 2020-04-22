@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { WebsocketService } from "./websocket.service";
-import { Observable, Subject } from "rxjs";
+import { Subject } from "rxjs";
 
 @Injectable({ providedIn: "root" })
 export class EditService {
@@ -12,4 +12,5 @@ export class EditService {
   sendTxt(data) {
     this.editorState.next(data);
   }
+
 }

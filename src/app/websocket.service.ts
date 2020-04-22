@@ -8,21 +8,15 @@ export class WebsocketService {
   constructor() {}
 
   connect(): Subject<MessageEvent> {
-    this.socket = io("api.lilmod.pro");
-    // this.socket = io("localhost:5000");
+    this.socket = io("http://arcane-harbor-15591.herokuapp.com");
 
     const observable = new Observable(obs => {
-      this.socket.on("message", data => {
-        console.log("Received message from Websocket Server");
-        obs.next(data);
-      });
-      return () => {
-        this.socket.disconnect();
-      };
+      this.socket.on("message", data => obs.next(data));
+      return () => this.socket.disconnect();
     });
 
     const observer = {
-      next: (data: Object) => {
+      next: (data: object) => {
         this.socket.emit("message", JSON.stringify(data));
       }
     };

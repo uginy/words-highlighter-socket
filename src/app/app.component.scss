@@ -62,10 +62,14 @@
       aside {
         min-width: 120px;
         * .remove {
-          border-radius: 100%;
-          padding: 1px 9px;
-          margin-bottom: 1px;
+          background: none;
+          border: 0;
+
+          &:hover {
+            color:red;
+          }
         }
+
         div {
           .words-list {
             span {

@@ -49,7 +49,7 @@
         <div class="jumbotron">
           <div *ngFor=" let word of words; let i=index" class="words-list">
             <span>{{ word }}</span>
-            <button (click)="onRemove(i)" class="btn btn-danger remove">х</button>
+            <button (click)="onRemove(i)" class="remove">✘</button>
           </div>
           <br>
           <div class="form-group">

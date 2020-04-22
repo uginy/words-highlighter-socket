@@ -1,0 +1,37 @@
+[debug] [2020-04-22T14:00:13.189Z] ----------------------------------------------------------------------
+[debug] [2020-04-22T14:00:13.191Z] Command:       /Users/ardname/.nvm/versions/node/v12.16.1/bin/node /Users/ardname/.nvm/versions/node/v12.16.1/bin/firebase deploy
+[debug] [2020-04-22T14:00:13.191Z] CLI Version:   8.0.2
+[debug] [2020-04-22T14:00:13.191Z] Platform:      darwin
+[debug] [2020-04-22T14:00:13.191Z] Node Version:  v12.16.1
+[debug] [2020-04-22T14:00:13.202Z] Time:          Wed Apr 22 2020 17:00:13 GMT+0300 (Israel Daylight Time)
+[debug] [2020-04-22T14:00:13.202Z] ----------------------------------------------------------------------
+[debug] [2020-04-22T14:00:13.202Z] 
+[debug] [2020-04-22T14:00:13.218Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-04-22T14:00:13.219Z] > authorizing via signed-in user
+[debug] [2020-04-22T14:00:13.219Z] [iam] checking project words-ccbbd for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2020-04-22T14:00:13.221Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2020-04-22T14:00:13.221Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2020-04-22T14:00:13.976Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Wed, 22 Apr 2020 14:00:13 GMT","server":"scaffolding on HTTPServer2","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"quic=\":443\"; ma=2592000; v=\"46,43\",h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-04-22T14:00:13.992Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/words-ccbbd:testIamPermissions  
+ {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2020-04-22T14:00:15.191Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Wed, 22 Apr 2020 14:00:15 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=740","alt-svc":"quic=\":443\"; ma=2592000; v=\"46,43\",h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-04-22T14:00:15.192Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/words-ccbbd  
+ 
+[debug] [2020-04-22T14:00:15.699Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Wed, 22 Apr 2020 14:00:15 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"quic=\":443\"; ma=2592000; v=\"46,43\",h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] 
+[info] === Deploying to 'words-ccbbd'...
+[info] 
+[info] i  deploying hosting
+[debug] [2020-04-22T14:00:15.703Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/words-ccbbd/versions  
+ {"config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2020-04-22T14:00:17.748Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Wed, 22 Apr 2020 14:00:17 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"quic=\":443\"; ma=2592000; v=\"46,43\",h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] i  hosting[words-ccbbd]: beginning deploy...
+[info] i  hosting[words-ccbbd]: found 10 files in dist/words
+[debug] [2020-04-22T14:00:17.800Z] [hosting] hash cache [ZGlzdC93b3Jkcw] stored for 10 files
+[debug] [2020-04-22T14:00:17.800Z] [hosting][hash queue][FINAL] {"max":37,"min":11,"avg":19,"active":0,"complete":10,"success":10,"errored":0,"retried":0,"total":10,"elapsed":42}
+[debug] [2020-04-22T14:00:17.801Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/words-ccbbd/versions/a9d146506ca53239:populateFiles  
+ <request body omitted>
+[debug] [2020-04-22T14:00:19.217Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Wed, 22 Apr 2020 14:00:19 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"quic=\":443\"; ma=2592000; v=\"46,43\",h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-04-22T14:00:19.219Z] [hosting][populate queue][FINAL] {"max":1419,"min":1419,"avg":1419,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":1420}
+[debug] [2020-04-22T14:00:19.220Z] [hosting] uploads queued: 3
