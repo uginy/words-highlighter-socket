@@ -2,3 +2,29 @@
 @import "~bootswatch/dist/sketchy/_variables";
 @import "~bootstrap/scss/bootstrap";
 @import "~bootswatch/dist/sketchy/_bootswatch";
+
+@include media-breakpoint-down(sm) {
+  .container {
+    .main,
+    .list {
+      grid-column: 1 / span 2;
+
+      .sketchy {
+        height: calc(100%) !important;
+        max-height: 300px;
+        overflow: auto;
+      }
+    }
+  }
+}
+
+* {
+  /* So 100% means 100% */
+  box-sizing: border-box;
+}
+
+body,
+html,
+app-root {
+  height: 100%;
+}

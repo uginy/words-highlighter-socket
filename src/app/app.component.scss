@@ -1,85 +1,107 @@
 :host {
-  .nav-item {
-    margin-right: 1rem;
-  }
-
-  .navbar {
-    display: flex;
-    justify-content: space-between;
-  }
-  .timer {
-    color: #fff;
-    margin: 0 1rem;
-  }
+  background-color: silver;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  box-sizing: border-box;
+  height: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.container {
+  background-color: #fff;
+  display: grid;
+  min-height: 95%;
+  grid-template-rows: auto 1fr auto;
+  gap: 1rem;
+  grid-template-columns: 5fr 2fr;
+  margin-top: 0;
+  margin-bottom: 0;
   padding: 1rem;
-  .wrapper {
-    padding: 1.5rem 1.2rem;
-    max-width: 100%;
-    margin: 0 auto;
-    min-width: 400px;
+  border: 2px solid black;
+  border-top-left-radius: 10px 350px;
+  border-top-right-radius: 350px 10px;
+  border-bottom-left-radius: 65px 10px;
+  border-bottom-right-radius: 65px 10px;
+
+  .header {
+    grid-column: 1 / span 2;
+    .nav-item {
+      margin-right: 1rem;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .timer {
+      color: #fff;
+      margin: 0 1rem;
+    }
+  }
+
+  .main {
     height: 100%;
+    div {
+      height: 100%;
+      cursor: pointer;
+      min-height: 0;
 
-    .jumbotron {
-      padding: 1rem;
+      textarea {
+        resize: none !important;
+        padding: 1rem;
+        border: 2px solid black;
+        border-top-left-radius: 10px 60px !important;
+        border-top-right-radius: 0px !important;
+        border-bottom-left-radius: 165px 10px !important;
+        border-bottom-right-radius: 0px !important;
+        height: 100%;
+        overflow-y: scroll;
+        min-height: 0;
+      }
     }
-
-    header {
-      margin-bottom: 5px;
+    .editarea {
+      height: calc(100vh - 200px);
+      overflow: scroll;
     }
-
-    main {
-      display: grid;
-      grid-template-columns: 4fr 1fr;
-      grid-template-rows: 1fr auto;
-      grid-gap: 1rem;
-      padding-top: 1rem;
-
-      .bottom-bar {
+  }
+  .list {
+    .sketchy {
+      height: calc(100vh - 200px);
+      overflow: auto;
+      .words-list {
         display: flex;
         justify-content: space-between;
-        padding: 0 0.6rem;
-      }
-      section {
-        article {
-          .jumbotron {
-            height: 100%;
-            & div div {
-              padding: 6px 12px;
-            }
-          }
-
-          height: 100%;
-          textarea {
-            width: 100%;
-            border: 0;
-            outline-color: transparent;
-            outline-style: none;
-            resize: none;
-          }
-        }
-      }
-
-      aside {
-        min-width: 120px;
-        * .remove {
+        .remove {
+          cursor: pointer;
           background: none;
           border: 0;
 
           &:hover {
-            color:red;
-          }
-        }
-
-        div {
-          .words-list {
-            span {
-              margin-top: 0.3rem;
-            }
-            display: flex;
-            justify-content: space-between;
+            color: red;
           }
         }
       }
     }
   }
+
+  .footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .updating {
+      display: block;
+      margin-left: 1rem;
+    }
+  }
+}
+
+.sketchy {
+  padding: 1rem;
+  border: 2px solid black;
+  border-top-left-radius: 10px 60px !important;
+  border-top-right-radius: 185px 10px !important;
+  border-bottom-left-radius: 165px 13px !important;
+  border-bottom-right-radius: 10px 150px !important;
 }
