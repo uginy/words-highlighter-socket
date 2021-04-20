@@ -8,7 +8,7 @@ export class WebsocketService {
   constructor() {}
 
   connect(): Subject<MessageEvent> {
-    this.socket = io("https://words-server.lilmod.pro");
+    this.socket = io("https://arcane-harbor-15591.herokuapp.com/");
 
     const observable = new Observable(obs => {
       this.socket.on("message", data => obs.next(data));
